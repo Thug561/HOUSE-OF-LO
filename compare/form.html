@@ -1,0 +1,125 @@
+	<div id="orderForm" style="display:none;">
+
+
+		<div id="formContainer">
+			<div class="formWrapper">
+				<div class="formLogo">
+					<img id="logoForm" src="/css/logoForm.png"/>
+				</div>
+
+				<div class="formScreenShot">
+					<img id="screenShot" width="512" height="265" style="width: 515px; height: 265px;"/>
+				</div>
+
+				<div id="formText">
+					<div id="formTitle">Bijna klaar!</div>
+					<div id="formDescription">
+						Sla je ontwerp op en ontvang direct per email je offerte plus de link om je ontwerp altijd terug te kunnen kijken en aan te passen.
+					</div>
+				</div>
+
+
+				<div id="inputFormVoornaam" class="inputFormControl">
+					<label id="inputBlockText1" for="formNameFirst" class="inputBlockTextAll">Voornaam</label>
+					<input type="text" placeholder="Jane" id="formNameFirst" name="formNameFirst"></input>
+				</div>
+
+				<div id="inputFormAchternaam" class="inputFormControl">
+					<label id="inputBlockText2" for="formNameLast" class="inputBlockTextAll">Achternaam</label>
+					<input type="text" placeholder="Doe" id="formNameLast" name="formNameLast"></input>
+				</div>
+
+				<div id="inputFormEmail" class="inputFormControl">
+					<label id="inputBlockText3" for="formEmail" class="inputBlockTextAll">Email</label>
+					<input type="text" placeholder="email@gmail.com" id="formEmail" name="formEmail"></input>
+				</div>
+
+				<div id="inputFormTelefoon" class="inputFormControl">
+					<label id="inputBlockText4" for="formPhone" class="inputBlockTextAll">Telefoon</label>
+					<input type="text" placeholder="085-4011608" id="formPhone" name="formPhone"></input>
+				</div>
+
+				<div id="inputFormStraatnaam" class="inputFormControl">
+					<label id="inputBlockText5" for="formAddress" class="inputBlockTextAll">Straatnaam</label>
+					<input type="text" placeholder="Simon Lindhoutstraat" id="formAddress" name="formAddress"></input>
+				</div>
+
+				<div id="inputFormHuisnummer" class="inputFormControl">
+					<label id="inputBlockText6" for="formAddress2" class="inputBlockTextAll">Huisnummer</label>
+					<input type="text" placeholder="1" id="formAddress2" name="formAddress2"></input>
+				</div>
+
+				<div id="inputFormPostcode" class="inputFormControl">
+					<label id="inputBlockText7" for="formAddress3" class="inputBlockTextAll">Postcode</label>
+					<input type="text" placeholder="4691GA" id="formAddress3" name="formAddress3"></input>
+				</div>
+
+				<div id="inputFormPlaatsnaam" class="inputFormControl">
+					<label id="inputBlockText8" for="formAddress4" class="inputBlockTextAll">Plaatsnaam</label>
+					<input type="text" placeholder="Tholen" id="formAddress4" name="formAddress4"></input>
+				</div>
+
+				<div id="checkboxDivFormw" class="formCheckBox">
+					<label for="form1AgreeCheckBox">
+						<input id="form1AgreeCheckBox" name="form1AgreeCheckBox" type="checkbox" style="top: 520px;"/>
+						<span id="checkBoxtextForm">Ja, ik geef toestemming om mijn gegevens conform de privacyverklaring te verwerken</span>
+					</label>
+				</div>
+
+				<div id="formButton" onclick="formSend();">Opslaan + offerte
+					<div id="descrButtonFornm">(Geheel vrijvlijvend)</div>
+				</div>
+
+				<div id="descrSpam">Check je spam box, indien je de email niet direct in je inbox ontvangt.</div>
+				<div class="lineWidthBlockForm"></div>
+
+				<div id="titleConfigForm">Configuratie details</div>
+				<div class="configForm">
+					<div class="configFormHeader">
+						<div id="optieForm">Optie</div>
+						<div id="optieVariatie">Variatie</div>
+					</div>
+					<div class="configFormItem">
+						<div class="textConfigFormLeft" id="textConfigLeft1">Indeling</div>
+						<div class="textConfigFormRight" id="textConfigRight1">Eén openslaande deur</div>
+					</div>
+					<div class="configFormItem">
+						<div class="textConfigFormLeft" id="textConfigLeft2">Lichtstraat</div>
+						<div class="textConfigFormRight" id="textConfigRight2">Vlak</div>
+					</div>
+					<div class="configFormItem">
+						<div class="textConfigFormLeft" id="textConfigLeft3">Leds in plafond (binnen)</div>
+						<div class="textConfigFormRight" id="textConfigRight3">4 items</div>
+					</div>
+					<div class="configFormItem">
+						<div class="textConfigFormLeft" id="textConfigLeft4">Leds in overstek (buiten)</div>
+						<div class="textConfigFormRight" id="textConfigRight4">4 items</div>
+					</div>
+					<div class="configFormItem">
+						<div class="textConfigFormLeft" id="textConfigLeft5">Vorstvrije kraan (buiten)</div>
+						<div class="textConfigFormRight" id="textConfigRight5">1 item</div>
+					</div>
+				</div>
+
+				<div type="button" id="formButtonOpslaan" onclick="formSend();">
+					<div>Opslaan</div>
+				</div>
+
+				<div type="button" id="formButtonOntwerp" onclick="formClose();">Ontwerp aanpassen</div>
+
+				<div id="descrBottom">We gebruiken cookies om content en advertenties te personaliseren, om functies
+					voor social media te bieden en om ons websiteverkeer te analyseren.
+				</div>
+
+				<div style="display: none;">
+					<label id="formEmailLabel">Screenshot:</label><br>
+					<input type="text" id="formScreenshot" name="formScreenshot"><br>
+				</div>
+			</div>
+		</div>
+
+		<div id="formRequest" style="display:none;"></div>
+
+		<div id="formRequestButton" class="btn gray" onclick="formClose();" style="display:none;">CLOSE</div>
+		<div id="closeCross2" onclick="formClose();"></div>
+	</div>
