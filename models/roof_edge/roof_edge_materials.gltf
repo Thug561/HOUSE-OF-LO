@@ -1,0 +1,419 @@
+{
+    "asset" : {
+        "generator" : "Khronos glTF Blender I/O v1.8.19",
+        "version" : "2.0"
+    },
+    "scene" : 0,
+    "scenes" : [
+        {
+            "name" : "Scene",
+            "nodes" : [
+                0,
+                1,
+                2,
+                3
+            ]
+        }
+    ],
+    "nodes" : [
+        {
+            "mesh" : 0,
+            "name" : "BakeTo",
+            "scale" : [
+                8,
+                8,
+                8
+            ],
+            "translation" : [
+                0.28467947244644165,
+                0.028700828552246094,
+                15.004087448120117
+            ]
+        },
+        {
+            "mesh" : 1,
+            "name" : "BakeTo.001",
+            "scale" : [
+                8,
+                8,
+                8
+            ],
+            "translation" : [
+                1.6325976848602295,
+                0.028700828552246094,
+                15.004087448120117
+            ]
+        },
+        {
+            "mesh" : 2,
+            "name" : "BakeTo.002",
+            "scale" : [
+                8,
+                8,
+                8
+            ],
+            "translation" : [
+                2.964658260345459,
+                0.028700828552246094,
+                15.004087448120117
+            ]
+        },
+        {
+            "mesh" : 3,
+            "name" : "Text.009",
+            "scale" : [
+                1.2317721843719482,
+                1.2317721843719482,
+                1.2317721843719482
+            ],
+            "translation" : [
+                4.158921241760254,
+                0,
+                15.5147066116333
+            ]
+        }
+    ],
+    "materials" : [
+        {
+            "doubleSided" : true,
+            "name" : "M_RoofEdge_1",
+            "normalTexture" : {
+                "index" : 0
+            },
+            "pbrMetallicRoughness" : {
+                "baseColorFactor" : [
+                    0.800000011920929,
+                    0.800000011920929,
+                    0.800000011920929,
+                    1
+                ],
+                "roughnessFactor" : 0.5636363625526428
+            }
+        },
+        {
+            "doubleSided" : true,
+            "name" : "M_RoofEdge_2",
+            "normalTexture" : {
+                "index" : 1
+            },
+            "pbrMetallicRoughness" : {
+                "baseColorFactor" : [
+                    0.3316090703010559,
+                    0.3316090703010559,
+                    0.3316090703010559,
+                    1
+                ],
+                "roughnessFactor" : 0.4363636374473572
+            }
+        },
+        {
+            "doubleSided" : true,
+            "name" : "M_RoofEdge_3",
+            "normalTexture" : {
+                "index" : 2
+            },
+            "pbrMetallicRoughness" : {
+                "baseColorFactor" : [
+                    0.14229941368103027,
+                    0.14229941368103027,
+                    0.14229941368103027,
+                    1
+                ],
+                "roughnessFactor" : 0.4227272868156433
+            }
+        }
+    ],
+    "meshes" : [
+        {
+            "name" : "Cube.001",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 0,
+                        "NORMAL" : 1,
+                        "TEXCOORD_0" : 2
+                    },
+                    "indices" : 3,
+                    "material" : 0
+                }
+            ]
+        },
+        {
+            "name" : "Cube.002",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 4,
+                        "NORMAL" : 5,
+                        "TEXCOORD_0" : 6
+                    },
+                    "indices" : 3,
+                    "material" : 1
+                }
+            ]
+        },
+        {
+            "name" : "Cube.003",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 7,
+                        "NORMAL" : 8,
+                        "TEXCOORD_0" : 9
+                    },
+                    "indices" : 3,
+                    "material" : 2
+                }
+            ]
+        },
+        {
+            "name" : "Text.010",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 10,
+                        "NORMAL" : 11,
+                        "TEXCOORD_0" : 12
+                    },
+                    "indices" : 13
+                }
+            ]
+        }
+    ],
+    "textures" : [
+        {
+            "sampler" : 0,
+            "source" : 0
+        },
+        {
+            "sampler" : 0,
+            "source" : 1
+        },
+        {
+            "sampler" : 0,
+            "source" : 1
+        }
+    ],
+    "images" : [
+        {
+            "mimeType" : "image/png",
+            "name" : "T_RoofEdge_Round_R20_Normal",
+            "uri" : "T_RoofEdge_Round_R20_Normal.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "T_RoofEdge_Straight_Normal",
+            "uri" : "T_RoofEdge_Straight_Normal.png"
+        }
+    ],
+    "accessors" : [
+        {
+            "bufferView" : 0,
+            "componentType" : 5126,
+            "count" : 20,
+            "max" : [
+                0.06448948383331299,
+                0.021298646926879883,
+                0.0355105884373188
+            ],
+            "min" : [
+                -0.03551065921783447,
+                -0.028700828552246094,
+                -0.06448940187692642
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 1,
+            "componentType" : 5126,
+            "count" : 20,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 2,
+            "componentType" : 5126,
+            "count" : 20,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 3,
+            "componentType" : 5123,
+            "count" : 48,
+            "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 4,
+            "componentType" : 5126,
+            "count" : 20,
+            "max" : [
+                0.06448948383331299,
+                0.021298646926879883,
+                0.0355105884373188
+            ],
+            "min" : [
+                -0.03551065921783447,
+                -0.028700828552246094,
+                -0.06448940187692642
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 5,
+            "componentType" : 5126,
+            "count" : 20,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 6,
+            "componentType" : 5126,
+            "count" : 20,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 7,
+            "componentType" : 5126,
+            "count" : 20,
+            "max" : [
+                0.06448948383331299,
+                0.021298646926879883,
+                0.0355105884373188
+            ],
+            "min" : [
+                -0.03551065921783447,
+                -0.028700828552246094,
+                -0.06448940187692642
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 8,
+            "componentType" : 5126,
+            "count" : 20,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 9,
+            "componentType" : 5126,
+            "count" : 20,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 10,
+            "componentType" : 5126,
+            "count" : 400,
+            "max" : [
+                2.690000057220459,
+                0,
+                0.009000000543892384
+            ],
+            "min" : [
+                0.07700000703334808,
+                0,
+                -0.6910000443458557
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 11,
+            "componentType" : 5126,
+            "count" : 400,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 12,
+            "componentType" : 5126,
+            "count" : 400,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 13,
+            "componentType" : 5123,
+            "count" : 882,
+            "type" : "SCALAR"
+        }
+    ],
+    "bufferViews" : [
+        {
+            "buffer" : 0,
+            "byteLength" : 240,
+            "byteOffset" : 0
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 240,
+            "byteOffset" : 240
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 160,
+            "byteOffset" : 480
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 96,
+            "byteOffset" : 640
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 240,
+            "byteOffset" : 736
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 240,
+            "byteOffset" : 976
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 160,
+            "byteOffset" : 1216
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 240,
+            "byteOffset" : 1376
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 240,
+            "byteOffset" : 1616
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 160,
+            "byteOffset" : 1856
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 4800,
+            "byteOffset" : 2016
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 4800,
+            "byteOffset" : 6816
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 3200,
+            "byteOffset" : 11616
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 1764,
+            "byteOffset" : 14816
+        }
+    ],
+    "samplers" : [
+        {
+            "magFilter" : 9729,
+            "minFilter" : 9987
+        }
+    ],
+    "buffers" : [
+        {
+            "byteLength" : 16580,
+            "uri" : "roof_edge_materials.bin"
+        }
+    ]
+}
