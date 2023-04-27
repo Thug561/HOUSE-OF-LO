@@ -1,0 +1,57 @@
+<div id="helpmeForm" style="display:none;">
+    <!-- <div id="closeCross2" onclick="formClose();"></div> -->
+
+
+    <div id="formContainerHelpForm">
+    <img id="closeX" onclick="formClose();" src="/css/closeX.png"/>	
+
+
+    <div id="fornText">
+    <div id="formHelpMijTitle">Heb je hulp nodig?</div>
+    <div id="formHelpMijDescription">Laat hieronder weten hoe we je kunnen helpen. We nemen binnen 24 uur contact met je op.</div>
+    </div>
+
+    
+    <div id="inputBlockHelpMijText1" class="inputBlockHelpMijTextAll">Voornaam</div>
+    <div id="inputFormHelpMijVoornaam">
+                <input type="text" placeholder="Jane" id="inputBlockBackgroundHelpMij"></input>
+    </div>
+
+    <div id="inputBlockHelpMijText2" class="inputBlockHelpMijTextAll">Telefoon</div>
+    <div id="inputFormHelpMijAchternaam">
+                <input type="text" placeholder="085-4011608" id="inputBlockBackgroundHelpMij"></input>
+    </div>
+
+    <div id="inputBlockHelpMijText3" class="inputBlockHelpMijTextAll">Email</div>
+    <div id="inputFormHelpMijEmail">
+                <input type="text" placeholder="jane.gmail.com" id="inputBlockBackgroundHelpMij"></input>
+    </div>
+
+    <div id="inputBlockHelpMijText4" class="inputBlockHelpMijTextAll">Achternaam</div>
+    <div id="inputFormHelpMijTelefoon">
+                <input type="text" placeholder="Doe" id="inputBlockBackgroundHelpMij"></input>
+    </div>
+
+    <div id="inputBlockHelpMijText5" class="inputBlockHelpMijTextAll">Waarmee heb je hulp nodig?</div>
+    <div id="inputFormHelpMijHulpNodig">
+                <input type="text" valign='top' placeholder="Jouw bericht" id="inputBlockHelpMijTextHeight"></input>
+    </div>
+
+
+    <div id="formButtonHelpMij" onclick="formSend();">Bericht versturen</div>
+    </div>
+
+    <div id="formRequest" style="display:none;"></div>
+
+    <div id="formRequestButton" class="btn red" onclick="formClose();" style="display:none;">CLOSE</div>
+
+
+    </div>
+
+
+
+    <script>
+        function openHelpForm(){
+        document.getElementById("helpmeForm").style.display = "block";
+    }
+    </script>

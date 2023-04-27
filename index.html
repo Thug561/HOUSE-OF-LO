@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta name="viewport" content="width=468, user-scalable=no ">
+<meta http-equiv="Content-Type" content="text/html" charset="utf-8" />
+	<title>3D product configurator</title>
+
+	<style>.loaderStyle,.loaderStyle2{display:inline-block;position:absolute;top:50vh;left:50vw}body{margin:0;padding:0;overflow:hidden}.loaderStyle{width:80px;height:80px;margin-top:-40px;margin-left:-40px;z-index:401}.loaderStyle:after{content:" ";display:block;width:64px;height:64px;margin:8px;border-radius:50%;border:2px solid #fff;border-color:#fff transparent;animation:1.2s linear infinite loaderStyle}.loaderStyle2{width:60px;height:60px;margin-top:-30px;margin-left:-30px;z-index:402}.loaderStyle2:after{content:" ";display:block;width:52px;height:52px;margin:4px;border-radius:50%;border:2px solid #fff;border-color:#fff transparent;animation:1.2s linear infinite loaderStyle2}.loaderStyle2:after,.loaderStyle:after{box-shadow:inset 0 0 2px #ffe9e9,0 0 2px #ffe9e9}@keyframes loaderStyle{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}@keyframes loaderStyle2{0%{transform:rotate(0)}100%{transform:rotate(-360deg)}}
+	</style>
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+
+
+	<link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="css/ui_color.css">
+	<link rel="stylesheet" href="css/ui_house.css">
+	<link rel="stylesheet" href="css/ui_space.css">
+
+	<link rel="stylesheet" href="css/form.css">
+	<link rel="stylesheet" href="css/new.css">
+
+	<link rel="stylesheet" href="css/menu0.css">
+	<link rel="stylesheet" href="css/menu1.css">
+	<link rel="stylesheet" href="css/menu2.css">
+	<link rel="stylesheet" href="css/menu3.css">
+	<link rel="stylesheet" href="css/menu4.css">
+	<link rel="stylesheet" href="css/menu5.css">
+	<link rel="stylesheet" href="css/menu6.css">
+
+
+
+	<script src="app2/babylon.js"></script>
+	<script src="app2/babylonjs.loaders.min.js"></script>
+
+
+
+<script src="app/appbild.js"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+<script>
+<!-- <?php echo "!-->"; include __DIR__."/backend/index_include.php"; echo "<!--"; ?> !-->
+</script>
+
+
+
+
+</head>
+
+<body>
+
+  	<canvas id="renderCanvas" style="display: block;"></canvas>
+	<div class="canvas2Ddiv" id="canvas2Ddiv" style="display: none;">
+	<svg id="canvas2d" width="1200" height="1200" style="display: none;"></svg>
+	</div>
+
+
+	<div id="waterMark" style="display:none !important;"></div>
+
+	<div id="topDiv">
+		<img src="css/housoflo_logo.png" class="logoText"/>
+		<div class="textGeneral">ONTWERP JE<br> EIGEN AANBOUW</div>
+	</div>
+
+<!-- option box new -->
+
+	<div class="optionsBoxClassN" id="optionsBoxN">
+
+		<div class="" id="optionsBoxOne" onclick="">
+			<div class="optionsTopText_top">Totale prijs voor uw configuratie <p id="priceN">13924</p></div>
+
+			</div>
+		</div>
+
+	</div>
+
+<div class="" id="builderUI" style="">
+
+<div id="builderOptionsButton">
+	<div class="builderBlockTextInactive" id="builderBlockText1">
+		<div id="builderBlockBackground">
+			<button type="button" id="buttonBuitenzijde"  onclick="setAppStateValue('doorDirection', 0);" style="border-color: #D5AA53;">Buitenzijde</button>
+			<button type="button" id="buttonBinnenzijde" onclick="setAppStateValue('doorDirection', 1);">Binnenzijde</button>
+		</div>
+	</div>
+</div>
+
+<div class="lineWidthFirstBlock"></div>
+
+<div class="builderBlockStyleInactive waves-effect waves-light z-depth-0" id="builderBlock1" onclick="switchUI(1);">
+<div class="builderBlockTextInactive" id="builderBlockText1"><img src="css/parameters.png" width="20" height="20" class="iconButton"/>Afmetingen</div>
+<div class="builderArrowInactive" id="builderArrow1"></div>
+</div>
+
+<div id="builderOptions1">
+
+<div class="inputblock">
+<div class="inputIcon" id="inputIcon1"></div>
+<div class="inputLabel1">Breedte</div>
+<button id="buttonWidth1" class="buttonInput1" onclick="setAppStateValue('boxWidth', 5100);">5.1 m</button>
+<button id="buttonWidth2" class="buttonInput2" onclick="setAppStateValue('boxWidth', 5400);">5.4 m</button>
+<button id="buttonWidth3" class="buttonInput3" onclick="setAppStateValue('boxWidth', 5700);">5.7 m</button>
+</div>
+
+<div class="inputblock2">
+<div class="inputIcon" id="inputIcon2"></div>
+<div class="inputLabel2">Diepte</div>
+<div class="inputBorder"></div>
+<div class="inputMM">mm</div>
+<div class="inputMinMaxLabel">2000 - 4000</div>
+
+<input type="text" class="inputValue" id="boxDeepth" name="boxDeepth" size="5" tabindex="13" value="2250" onblur="" / onkeydown="setDeepthByEnter()"/>
+
+
+
+<div id="minusD" onclick="uiPlusMinMax('boxDeepth','boxDeepth', -250, 3000, 2000, 4000);" class="waves-effect waves-light z-depth-0"></div>
+<div id="plusD"  onclick="uiPlusMinMax('boxDeepth','boxDeepth',  250, 3000, 2000, 4000);" class="waves-effect waves-light z-depth-0"></div>
+</div>
+
+
+
+
+
+<div class="inputblock2" id="borderBothDiv">
+
+	<div class="inputIcon" id="inputIcon3"></div>
+	<div class="inputLabel">Gevelbreedte</div>
+	<div class="inputBorder"></div>
+	<div class="inputMM">mm</div>
+	<div class="inputMinMaxLabel">100 - 600</div>
+
+
+	<input type="text" class="inputValue" id="borderBoth" name="borderBoth" size="5" tabindex="13" value="100"	onblur="" / onkeydown="setDeepthByEnter()"/>
+
+	<div id="minusD" onclick="uiPlusMinMax('borderBoth','borderBoth', -100, 100, 100, 600);" class="waves-effect waves-light z-depth-0"></div>
+	<div id="plusD"  onclick="uiPlusMinMax('borderBoth','borderBoth',  100, 100, 100, 600);" class="waves-effect waves-light z-depth-0"></div>
+</div>
+
+
+<div id="checkboxDiv1" class="inputblock2">
+<label>
+        <input id="checkBoxBorder" name="checkBoxBorder" type="checkbox" class="filled-in" onclick="checkBoxBorderClick();"/>
+        <span class="checkBoxtext">Stel de breedte van de zijden apart in</span>
+</label>
+</div>
+
+
+<!-- ///////////// -->
+
+	<div class="inputblock2"  id="border1Div" style="display:none;">
+
+	<div class="inputIcon" id="inputIcon3"></div>
+	<div class="inputLabel">Links</div>
+	<div class="inputBorder"></div>
+	<div class="inputMM">mm</div>
+	<div class="inputMinMaxLabel">0 - 600</div>
+
+
+	<input type="text" class="inputValue" id="border1" name="border1" size="5" tabindex="13" value="100"	onblur="" / onkeydown="setDeepthByEnter()"/>
+
+	<div id="minusD" onclick="uiPlusMinMax('border1','border1', -100, 100, 0, 600);" class="waves-effect waves-light z-depth-0"></div>
+	<div id="plusD"  onclick="uiPlusMinMax('border1','border1',  100, 100, 0, 600);" class="waves-effect waves-light z-depth-0"></div>
+	</div>
+
+	<div class="inputblock2"  id="border2Div" style="display:none;">
+
+	<div class="inputIcon" id="inputIcon3"></div>
+	<div class="inputLabel">Rechts</div>
+	<div class="inputBorder"></div>
+	<div class="inputMM">mm</div>
+	<div class="inputMinMaxLabel">0 - 600</div>
+
+
+	<input type="text" class="inputValue" id="border2" name="border2" size="5" tabindex="13" value="100"	onblur="" / onkeydown="setDeepthByEnter()"/>
+
+	<div id="minusD" onclick="uiPlusMinMax('border2','border2', -100, 100, 0, 600);" class="waves-effect waves-light z-depth-0"></div>
+	<div id="plusD"  onclick="uiPlusMinMax('border2','border2',  100, 100, 0, 600);" class="waves-effect waves-light z-depth-0"></div>
+	</div>
+
+
+
+	<div class="lineWidth0"></div>
+</div>
+
+
+<div class="builderBlockStyleInactive waves-effect waves-light z-depth-0" id="builderBlock2" onclick="switchUI(2);">
+			<div class="builderBlockTextInactive" id="builderBlockText2"><img src="css/Zijgevels.png" width="20" height="20" class="iconButton">Zijgevels</div>
+			<div class="builderArrowInactive" id="builderArrow2"></div>
+
+		</div>
+
+<div id="builderOptions2">
+
+			<!-- 2 block, first half -->
+
+			<div id="builderText">Indeling</div>
+
+
+				<button type="button" id="buttonIndeling1" onclick="setAppStateValue('doorType', 1); openButtonPositie1();hide2(); hide3();">Eén openslaande deur</button>
+				<div id="outside1" onclick="//hide1()"></div>
+				<div id="moreBottom1" style="display: block !important;">Deur positie
+<button type="button" id="buttonLinks1"  onclick="setAppStateValue('doorDirection', 0);" style="border-color: #D5AA53;">Links</button>
+					<button type="button" id="buttonRechts1" onclick="setAppStateValue('doorDirection', 1);">Rechts</button>
+				</div>
+
+
+				<button type="button" id="buttonIndeling2" onclick="setAppStateValue('doorType', 2); openButtonPositie2(); hide1(); hide3();">Twee openslaande deuren</button>
+				<div id="outside2" onclick="//hide2()"></div>
+				<div id="moreBottom2">Deur positie
+<button type="button" id="buttonLinks2"  onclick="setAppStateValue('doorDirection', 0);" style="border-color: #D5AA53;">Links</button>
+					<button type="button" id="buttonRechts2" onclick="setAppStateValue('doorDirection', 1);"">Rechts</button>
+				</div>
+
+
+				<button type="button" id="buttonIndeling3" onclick="setAppStateValue('doorType', 3); openButtonPositie3(); hide1(); hide2();"> Schuifdeur</button>
+				<div id="outside3" onclick="//hide3()"></div>
+				<div id="moreBottom3">Deur positie
+<button type="button" id="buttonLinks3"  onclick="setAppStateValue('doorDirection', 0);" style="border-color: #D5AA53;">Links</button>
+					<button type="button" id="buttonRechts3" onclick="setAppStateValue('doorDirection', 1);">Rechts</button>
+				</div>
+
+
+				<script>
+					function openButtonPositie1(){
+						document.getElementById("outside1").style.display = "block";
+						document.getElementById("moreBottom1").style.display = "block";
+					}
+
+					function hide1(){
+						document.getElementById("outside1").style.display = "none";
+						document.getElementById("moreBottom1").style.display = "none";
+					}
+
+
+					function openButtonPositie2(){
+						document.getElementById("outside2").style.display = "block";
+						document.getElementById("moreBottom2").style.display = "block";
+					}
+
+					function hide2(){
+						document.getElementById("outside2").style.display = "none";
+						document.getElementById("moreBottom2").style.display = "none";
+					}
+
+					function openButtonPositie3(){
+						document.getElementById("outside3").style.display = "block";
+						document.getElementById("moreBottom3").style.display = "block";
+					}
+
+					function hide3(){
+						document.getElementById("outside3").style.display = "none";
+						document.getElementById("moreBottom3").style.display = "none";
+					}
+
+					function openDoorColorDiv1(){
+						document.getElementById("doorColorDiv1").style.display = "block";
+						document.getElementById("doorColorDiv2").style.display = "none";		
+						document.getElementById("doorColorDiv3").style.display = "none";							
+					}
+
+					function openDoorColorDiv2(){
+						document.getElementById("doorColorDiv2").style.display = "block";
+						document.getElementById("doorColorDiv1").style.display = "none";		
+						document.getElementById("doorColorDiv3").style.display = "none";							
+					}
+
+					function openDoorColorDiv3(){
+						document.getElementById("doorColorDiv3").style.display = "block";
+						document.getElementById("doorColorDiv1").style.display = "none";		
+						document.getElementById("doorColorDiv2").style.display = "none";							
+					}
+
+				</script>
+
+
+				<!--  2 block, second half -->
+
+				<div class="lineWidth"></div>
+				<div class="textMateriaal">Materiaal</div>
+				<div class="blockTab_1"><button type="button" id="doorMaterialButton1" onclick="setDoorMaterial(1); openDoorColorDiv1();">Hout</button></div>
+				
+				
+
+				
+				
+				<div id="doorColorDiv1" class="colorDoorDiv" style="display: block !important;">Kleur
+					<button type="button" id="orangeColorBottom" onclick="setDoorColor(4);"></button>
+					<button type="button" id="whiteColorBottom" onclick="setDoorColor(1);"></button>
+					<button type="button" id="brownColorBottom" onclick="setDoorColor(3);"></button>
+					<button type="button" id="greeyColorBottom" onclick="setDoorColor(2);"></button>
+
+					<div class="textMoreButtonZKO">Zelf kleur opgeven
+					<button type="button" id="colorInput" onclick=""></button>
+					<div class="inputBorderHout"></div>
+					<input type="text" class="inputValueHout" id="deepthInput" name="quantWash" size="5" tabindex="13" value="RALXXXX" onblur="" onkeydown="setDeepthByEnter()"/>
+				</div>
+				</div>
+				
+				
+				
+	
+
+
+
+
+
+				<div class="blockTab_1"><button type="button" id="doorMaterialButton2" onclick="setDoorMaterial(2); openDoorColorDiv2();">Kunststof</button></div>
+				
+				<div id="doorColorDiv2" class="colorDoorDiv">Kleur
+					<button type="button" id="orangeColorBottom" onclick="setDoorColor(4);"></button>
+					<button type="button" id="whiteColorBottom" onclick="setDoorColor(1);"></button>
+					<button type="button" id="brownColorBottom" onclick="setDoorColor(3);"></button>
+					<button type="button" id="greeyColorBottom" onclick="setDoorColor(2);"></button>
+
+					<div class="textMoreButtonZKO">Zelf kleur opgeven
+					<button type="button" id="colorInput" onclick=""></button>
+					<div class="inputBorderHout"></div>
+					<input type="text" class="inputValueHout" id="deepthInput" name="quantWash" size="5" tabindex="13" value="RALXXXX" onblur="" onkeydown="setDeepthByEnter()"/>
+				</div>
+				</div>
+				
+				
+				<div class="blockTab_1"><button type="button" id="doorMaterialButton3" onclick="setDoorMaterial(3);openDoorColorDiv3();">Aluminium</button></div>
+				
+				<div id="doorColorDiv3" class="colorDoorDiv">Kleur
+					<button type="button" id="orangeColorBottom" onclick="setDoorColor(4);"></button>
+					<button type="button" id="whiteColorBottom" onclick="setDoorColor(1);"></button>
+					<button type="button" id="brownColorBottom" onclick="setDoorColor(3);"></button>
+					<button type="button" id="greeyColorBottom" onclick="setDoorColor(2);"></button>
+
+					<div class="textMoreButtonZKO">Zelf kleur opgeven
+					<button type="button" id="colorInput" onclick=""></button>
+					<div class="inputBorderHout"></div>
+					<input type="text" class="inputValueHout" id="deepthInput" name="quantWash" size="5" tabindex="13" value="RALXXXX" onblur="" onkeydown="setDeepthByEnter()"/>
+				</div>
+				</div>
+
+				<!--  3 block, third half -->
+
+
+<div class="lineWidth3"></div>
+
+
+
+
+
+</div>
+
+
+
+
+		<div class="builderBlockStyleInactive waves-effect waves-light z-depth-0" id="builderBlock3" onclick="switchUI(3);">
+			<div class="builderBlockTextInactive" id="builderBlockText3"><img src="css/doorsandindows.png" width="20" height="20" class="iconButton">Kozijn</div>
+			<div class="builderArrowInactive" id="builderArrow3"></div>
+		</div>
+
+		<div id="builderOptions3">
+
+			
+			<!-- 2 block, first half -->
+
+<div id="builderText">Indeling</div>
+
+
+	<button type="button" id="buttonIndeling1" onclick="setAppStateValue('doorType', 1); openButtonPositie1();hide2(); hide3();">Eén openslaande deur</button>
+	<div id="outside1" onclick="//hide1()"></div>
+	<div id="moreBottom1" style="display: block !important;">Deur positie
+<button type="button" id="buttonLinks1"  onclick="setAppStateValue('doorDirection', 0);" style="border-color: #D5AA53;">Links</button>
+		<button type="button" id="buttonRechts1" onclick="setAppStateValue('doorDirection', 1);">Rechts</button>
+	</div>
+
+
+	<button type="button" id="buttonIndeling2" onclick="setAppStateValue('doorType', 2); openButtonPositie2(); hide1(); hide3();">Twee openslaande deuren</button>
+	<div id="outside2" onclick="//hide2()"></div>
+	<div id="moreBottom2">Deur positie
+<button type="button" id="buttonLinks2"  onclick="setAppStateValue('doorDirection', 0);" style="border-color: #D5AA53;">Links</button>
+		<button type="button" id="buttonRechts2" onclick="setAppStateValue('doorDirection', 1);"">Rechts</button>
+	</div>
+
+
+	<button type="button" id="buttonIndeling3" onclick="setAppStateValue('doorType', 3); openButtonPositie3(); hide1(); hide2();"> Schuifdeur</button>
+	<div id="outside3" onclick="//hide3()"></div>
+	<div id="moreBottom3">Deur positie
+<button type="button" id="buttonLinks3"  onclick="setAppStateValue('doorDirection', 0);" style="border-color: #D5AA53;">Links</button>
+		<button type="button" id="buttonRechts3" onclick="setAppStateValue('doorDirection', 1);">Rechts</button>
+	</div>
+
+
+	<script>
+		function openButtonPositie1(){
+			document.getElementById("outside1").style.display = "block";
+			document.getElementById("moreBottom1").style.display = "block";
+		}
+
+		function hide1(){
+			document.getElementById("outside1").style.display = "none";
+			document.getElementById("moreBottom1").style.display = "none";
+		}
+
+
+		function openButtonPositie2(){
+			document.getElementById("outside2").style.display = "block";
+			document.getElementById("moreBottom2").style.display = "block";
+		}
+
+		function hide2(){
+			document.getElementById("outside2").style.display = "none";
+			document.getElementById("moreBottom2").style.display = "none";
+		}
+
+		function openButtonPositie3(){
+			document.getElementById("outside3").style.display = "block";
+			document.getElementById("moreBottom3").style.display = "block";
+		}
+
+		function hide3(){
+			document.getElementById("outside3").style.display = "none";
+			document.getElementById("moreBottom3").style.display = "none";
+		}
+
+		function openDoorColorDiv1(){
+			document.getElementById("doorColorDiv1").style.display = "block";
+			document.getElementById("doorColorDiv2").style.display = "none";		
+			document.getElementById("doorColorDiv3").style.display = "none";							
+		}
+
+		function openDoorColorDiv2(){
+			document.getElementById("doorColorDiv2").style.display = "block";
+			document.getElementById("doorColorDiv1").style.display = "none";		
+			document.getElementById("doorColorDiv3").style.display = "none";							
+		}
+
+		function openDoorColorDiv3(){
+			document.getElementById("doorColorDiv3").style.display = "block";
+			document.getElementById("doorColorDiv1").style.display = "none";		
+			document.getElementById("doorColorDiv2").style.display = "none";							
+		}
+
+	</script>
+
+
+	<!--  2 block, second half -->
+
+	<div class="lineWidth"></div>
+	<div class="textMateriaal">Materiaal</div>
+	<div class="blockTab_1"><button type="button" id="doorMaterialButton1" onclick="setDoorMaterial(1); openDoorColorDiv1();">Hout</button></div>
+	
+	
+
+	
+	
+	<div id="doorColorDiv1" class="colorDoorDiv" style="display: block !important;">Kleur
+		<button type="button" id="orangeColorBottom" onclick="setDoorColor(4);"></button>
+		<button type="button" id="whiteColorBottom" onclick="setDoorColor(1);"></button>
+		<button type="button" id="brownColorBottom" onclick="setDoorColor(3);"></button>
+		<button type="button" id="greeyColorBottom" onclick="setDoorColor(2);"></button>
+
+		<div class="textMoreButtonZKO">Zelf kleur opgeven
+		<button type="button" id="colorInput" onclick=""></button>
+		<div class="inputBorderHout"></div>
+		<input type="text" class="inputValueHout" id="deepthInput" name="quantWash" size="5" tabindex="13" value="RALXXXX" onblur="" onkeydown="setDeepthByEnter()"/>
+	</div>
+	</div>
+	
+	
+	
+
+
+
+
+
+
+	<div class="blockTab_1"><button type="button" id="doorMaterialButton2" onclick="setDoorMaterial(2); openDoorColorDiv2();">Kunststof</button></div>
+	
+	<div id="doorColorDiv2" class="colorDoorDiv">Kleur
+		<button type="button" id="orangeColorBottom" onclick="setDoorColor(4);"></button>
+		<button type="button" id="whiteColorBottom" onclick="setDoorColor(1);"></button>
+		<button type="button" id="brownColorBottom" onclick="setDoorColor(3);"></button>
+		<button type="button" id="greeyColorBottom" onclick="setDoorColor(2);"></button>
+
+		<div class="textMoreButtonZKO">Zelf kleur opgeven
+		<button type="button" id="colorInput" onclick=""></button>
+		<div class="inputBorderHout"></div>
+		<input type="text" class="inputValueHout" id="deepthInput" name="quantWash" size="5" tabindex="13" value="RALXXXX" onblur="" onkeydown="setDeepthByEnter()"/>
+	</div>
+	</div>
+	
+	
+	<div class="blockTab_1"><button type="button" id="doorMaterialButton3" onclick="setDoorMaterial(3);openDoorColorDiv3();">Aluminium</button></div>
+	
+	<div id="doorColorDiv3" class="colorDoorDiv">Kleur
+		<button type="button" id="orangeColorBottom" onclick="setDoorColor(4);"></button>
+		<button type="button" id="whiteColorBottom" onclick="setDoorColor(1);"></button>
+		<button type="button" id="brownColorBottom" onclick="setDoorColor(3);"></button>
+		<button type="button" id="greeyColorBottom" onclick="setDoorColor(2);"></button>
+
+		<div class="textMoreButtonZKO">Zelf kleur opgeven
+		<button type="button" id="colorInput" onclick=""></button>
+		<div class="inputBorderHout"></div>
+		<input type="text" class="inputValueHout" id="deepthInput" name="quantWash" size="5" tabindex="13" value="RALXXXX" onblur="" onkeydown="setDeepthByEnter()"/>
+	</div>
+	</div>
+
+	<!--  3 block, third half -->
+
+
+<div class="lineWidth3"></div>
+
+
+
+		</div>
+
+
+
+
+
+
+
+		<div class="builderBlockStyleInactive waves-effect waves-light z-depth-0" id="builderBlock4" onclick="switchUI(4);">
+
+			<div class="builderBlockTextInactive" id="builderBlockText4"><img src="css/roof.png" width="20" height="20" class="iconButton"/>Boeiboord</div>
+			<div class="builderArrowInactive" id="builderArrow4"></div>
+
+		</div>
+
+		<div id="builderOptions4">
+			
+			<!-- NEW CODE -->
+
+<div class="textMateriaal2">Materiaal</div>
+
+<div class="blockTab_1">
+<button type="button" id="buiMaterialButton1" onclick="setBuiMaterial(0);">
+Geen boeiboord</button></div>
+
+<div class="blockTab_1">
+<button type="button" id="buiMaterialButton2" onclick="setBuiMaterial(1); openButtonPositie4();">
+Kunststof</button></div>
+<div id="outside4" onclick="//hide2()"></div>
+<div id="doorColorDiv1" class="colorDoorDivBlock4" style="display: block !important">Kleur boeiboord
+	<button type="button" id="whiteColorBottomBlock4" onclick="setDoorColor(1);"></button>
+	<button type="button" id="greeyColorBottomBlock4" onclick="setDoorColor(2);"></button>
+	<button type="button" id="blackColorBottomBlock4" onclick="setDoorColor(3);"></button>
+</div>
+
+
+<div class="blockTab_1">
+<button type="button" id="buiMaterialButton3" onclick="setBuiMaterial(2); openButtonPositie5();">
+Hout</button></div>
+<div id="outside5" onclick="//hide2()"></div>
+<div id="doorColorDiv2" class="colorDoorDivBlock4" style="display: block !important;">Kleur boeiboord
+	<button type="button" id="whiteColorBottomBlock4" onclick="setDoorColor(1);"></button>
+	<button type="button" id="greeyColorBottomBlock4" onclick="setDoorColor(2);"></button>
+	<button type="button" id="blackColorBottomBlock4" onclick="setDoorColor(3);"></button>
+</div>
+
+<div class="lineWidth2"></div>
+<div id="doorColorDiv3" class="colorDoorDivBlock4" style="display: block !important;">Kleur daktrim
+	<button type="button" id="greeyColor" onclick="setDoorColor(2);"></button>
+	<button type="button" id="blackColor" onclick="setDoorColor(3);"></button>
+</div>
+
+
+<div class="textZinkenKraaldeel">Zinken kraaldeel
+
+<div class="switchZinkenKraaldeelMain"  style="">
+<div class="switchZinkenKraaldeel" style="">
+	<div class="switch">
+		<label>
+
+			<input type="checkbox" id="zink" value="false" name="zink" onchange="checkBoxSet('zink');">
+			<span class="lever"></span>
+
+		</label>
+	</div>
+</div>
+</div>
+</div>
+
+<div class="lineWidth2"></div>
+
+<div class="textOverstek2">Overstek
+
+<div class="switchOverstekMain" style="">
+<div class="switchOverstek" style="">
+<div class="switch">
+<label>
+
+	<input type="checkbox" id="overstek" value="false" name="overstek" onchange="checkBoxSet('overstek');">
+	<span class="lever"></span>
+
+</label>
+</div>
+</div>
+</div>
+</div>
+
+<div class="blockTab_1">
+<button type="button" id="buiMaterialButton2" onclick="setBuiMaterial(1);">
+Kunststof</button></div>
+
+<div id="doorColorDiv1" class="colorDoorDivBlock4" style="display: block !important;">Kleur
+	<button type="button" id="greeyColor" onclick="setDoorColor(2);"></button>
+	<button type="button" id="blackColor" onclick="setDoorColor(3);"></button>
+</div>
+
+<div class="blockTab_1">
+<button type="button" id="buiMaterialButton3" onclick="setBuiMaterial(2);">
+Hout</button></div>
+
+
+<div class="blockTab_1">
+<button type="button" id="buiMaterialButton4" onclick="setBuiMaterial(3);">
+Keralite</button></div>
+
+<div class="blockTab_2">
+<button type="button" id="buiMaterialButton5" onclick="setBuiMaterial(4);">
+Plaster</button></div>
+
+
+
+
+
+
+
+<div id="outside5" onclick="//hide4()"></div>
+
+
+<div id="moreBottom5">Zelf kleur opgeven
+	<button type="button" id="colorInput" onclick=""></button>
+	<div class="inputBorderHout"></div>
+	<input type="text" class="inputValueHout" id="deepthInput" name="quantWash" size="5" tabindex="13" value="RALXXXX" onblur="" onkeydown="setDeepthByEnter()">
+
+<div class="kleurDaktrim2">Kleur daktrim
+	<button type="button" id="greeyColor2" onclick="setDoorColor(1)"></button>
+	<button type="button" id="blackColor" onclick="setDoorColor(3)"></button>
+
+</div>
+</div>
+
+<div id="outside6" onclick="//hide4()"></div>
+
+<div id="moreBottom6">
+<div class="lineWidth2_1"></div>
+<div class="KleurDaktrimText">Kleur daktrim
+<button type="button" id="blackColor1" onclick="setDoorColor(3)"></button>
+<button type="button" id="greeyColor3" onclick="setDoorColor(1)"></button>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+<div class="lineWidth5"></div>
+<!-- ////////////////// -->
+
+<div style="display: none; position: relative; height: 182px;">
+	<div class="builderOptionText">Buitenwand</div>
+
+	<div class="optionColorActive" id="optionColor1_1" onclick="color1_1Select(); return false;">
+		<div class="optionColorCheckboxActive" id="color1_1Checkbox"></div>
+		<div class="optionColor1image"></div>
+		<div class="optionColorText">Douglas zwart</div>
+	</div>
+
+	<div class="optionColorInactive" id="optionColor1_2" onclick="color1_2Select(); return false;">
+		<div class="optionColorCheckboxInative" id="color1_2Checkbox"></div>
+		<div class="optionColor2image"></div>
+		<div class="optionColorText">Douglas naturel</div>
+	</div>
+
+</div>
+
+<div style="display: none; position: relative; height: 120px;">
+	<div class="builderOptionText">Binnenwand</div>
+	<div style="position:absolute; display: none; left: 370px; width: 150px; top: 24px;">
+		<div class="switch">
+			<label>
+
+				<input type="checkbox" id="wallInside" value="false" name="wallInside" onchange="setWallsInside();">
+				<span class="lever"></span>
+
+			</label>
+		</div>
+	</div>
+</div>
+
+<div id="color2optionsDiv" style="position:relative; height: 136px; display: none;">
+	<div class="optionColorActive" id="optionColor2_1" onclick="color2_1Select(); return false;">
+		<div class="optionColorCheckboxActive" id="color2_1Checkbox"></div>
+		<div class="optionColor1image"></div>
+		<div class="optionColorText">Douglas zwart</div>
+	</div>
+
+
+
+	<div class="optionColorInactive" id="optionColor2_2" onclick="color2_2Select(); return false;">
+		<div class="optionColorCheckboxInative" id="color2_2Checkbox"></div>
+		<div class="optionColor2image"></div>
+		<div class="optionColorText">Douglas naturel</div>
+	</div>
+</div>
+			
+		</div>
+
+		<!-- NEW TAB start -->
+
+
+		<div class="builderBlockStyleInactive waves-effect waves-light z-depth-0" id="builderBlock5" onclick="switchUI(5);">
+			<div class="builderBlockTextInactive" id="builderBlockText5"><img src="css/Lichtstraat.png" width="20" height="20" class="iconButton"/>Lichtstraat</div>
+			<div class="builderArrowInactive" id="builderArrow5"></div>
+		</div>
+
+	<div id="builderOptions5" style="display: none; position: relative;">
+		
+		<div class="blockTab_5">
+			<button type="button" id="buiLichstraatButton1" class="classBuiLichstraatButton" onclick="setBuiMaterial(0);">Geen boeiboord</button>
+			<button type="button" id="buiLichstraatButton2" class="classBuiLichstraatButton" onclick="setBuiMaterial(2); openButtonPositie5();">Vlak</button>
+			<button type="button" id="buiLichstraatButton3" class="classBuiLichstraatButton" onclick="setBuiMaterial(2); openButtonPositie5();">Zadeldak</button>
+			<button type="button" id="buiLichstraatButton4"  class="classBuiLichstraatButton" onclick="setBuiMaterial(2); openButtonPositie5();">Lessenaarsdak</button>
+		</div>
+		<div class="lineWidth0"></div>
+	</div>
+
+
+<div class="builderBlockStyleInactive waves-effect waves-light z-depth-0" id="builderBlock6" onclick="switchUI(6);" style="">
+			<div class="builderBlockTextInactive" id="builderBlockText6"><img src="css/options.png" width="20" height="20" class="iconButton"/>Opties</div>
+			<div class="builderArrowInactive" id="builderArrow6"></div>
+		</div>
+
+		<div id="builderOptions6" style="display: none;">
+			<div class="blockTab_6_1">
+				<div class="textPlafond1">Leds in plafond (binnen)
+				<div class="descrOverstek2">Afstand tussen leds is 60cm</div>
+				<div class="descrOverstek3">Klik spotjes aan/uit </div>
+
+
+<div class="switchOverstek1" style="">
+<div class="switch">
+<label>
+
+	<input type="checkbox" id="overstek" value="false" name="overstek" onchange="checkBoxSet('overstek');">
+	<span class="lever"></span>
+
+</label>
+
+</div>
+</div>
+</div>
+		</div>
+
+		<div class="blockTab_6_2">
+			<button type="button" class="buttonSpotjes" id="buttonSpotjesOnOff1">1</button>
+			<button type="button" class="buttonSpotjes" id="buttonSpotjesOnOff2">2</button>
+			<button type="button" class="buttonSpotjes" id="buttonSpotjesOnOff3">3</button>
+			<button type="button" class="buttonSpotjes" id="buttonSpotjesOnOff4">4</button>
+			<button type="button" class="buttonSpotjes" id="buttonSpotjesOnOff5">5</button>
+			<button type="button" class="buttonSpotjes" id="buttonSpotjesOnOff6">6</button>
+
+			<button type="button" class="buttonSpotjes" id="buttonSpotjesOnOff7">7</button>
+			<button type="button" class="buttonSpotjes" id="buttonSpotjesOnOff8">8</button>
+			<button type="button" class="buttonSpotjes" id="buttonSpotjesOnOff9">9</button>
+			<button type="button" class="buttonSpotjes" id="buttonSpotjesOnOff10">10</button>
+			<button type="button" class="buttonSpotjes" id="buttonSpotjesOnOff11">11</button>
+			<button type="button" class="buttonSpotjes" id="buttonSpotjesOnOff12">12</button>
+
+			<button type="button" class="buttonSpotjes" id="buttonSpotjesOnOff13">13</button>
+			<button type="button" class="buttonSpotjes" id="buttonSpotjesOnOff14">14</button>
+			<button type="button" class="buttonSpotjes" id="buttonSpotjesOnOff15">15</button>
+			<button type="button" class="buttonSpotjes" id="buttonSpotjesOnOff16">16</button>
+			<button type="button" class="buttonSpotjes" id="buttonSpotjesOnOff17">17</button>
+			<button type="button" class="buttonSpotjes" id="buttonSpotjesOnOff18">18</button>
+
+
+			<div class="textOverstek3">Leds in overstek (buiten)</div>
+			<div class="switchOverstek2" style="">
+				<div class="switch">
+				<label>
+
+					<input type="checkbox" id="overstek" value="false" name="overstek" onchange="checkBoxSet('overstek');">
+					<span class="lever"></span>
+
+				</label>
+
+				</div>
+			</div>
+			
+		</div>
+
+		<div class="lineWidth2"></div>
+		<div class="blockTab_6_3">
+			
+			<div class="textOverstek4">Zonwering (buiten)</div>
+			<div class="switchOverstek3" style="">
+				<div class="switch">
+				<label>
+
+					<input type="checkbox" id="overstek" value="false" name="overstek" onchange="checkBoxSet('overstek');">
+					<span class="lever"></span>
+
+				</label>
+
+				</div>
+			</div>
+			
+			<div id="checkboxDiv1" class="inputblock2">
+			<label>
+					<input id="checkBoxBorder" name="checkBoxBorder" type="checkbox" class="filled-in" onclick="checkBoxBorderClick();"/>
+					<span class="checkBoxtextToon">Toon zonwering uitgerold</span>
+			</label>
+			</div>
+
+			<div class="textOverstek5">Zonwering elektrisch bedienbaar</div>
+			<div class="switchOverstek4" style="">
+				<div class="switch">
+				<label>
+
+					<input type="checkbox" id="overstek" value="false" name="overstek" onchange="checkBoxSet('overstek');">
+					<span class="lever"></span>
+
+				</label>
+
+				</div>
+			</div>
+
+			<div class="radioButtonBediening1">
+				<label>
+					<input name="group1" type="radio" checked />
+					<span class="radioButtonBedieningText">Handmatige bediening</span>
+				</label>
+			</div>
+			<div class="radioButtonBediening2">
+				<label>
+					<input name="group1" type="radio" />
+					<span class="radioButtonBedieningText">Elektrische bediening</span>
+				</label>
+			</div>
+
+		</div>
+		<div class="lineWidth2"></div>
+		<div class="blockTab_6_4">
+			<div class="spaceHightPositie1">
+			<button type="button" id="buttonVloerverwarming" onclick="setAppStateValue('doorType', 1); openButtonPositie1();hide2(); hide3();">Vloerverwarming</button>
+		</div>
+
+		<div class="spaceHightPositie2">
+				<button type="button" id="buttonHemelwaterAfvoer" onclick="setAppStateValue('doorType', 2); openButtonPositie2(); hide1(); hide3();">Hemelwater afvoer</button>
+			</div>
+
+			<div class="spaceHightPositie3">
+			<div class="bottomPositie" id="bottomPositieText">Positie
+				<button type="button" class="bottomPositie" id="buttonPositieLinks1"  onclick="setAppStateValue('doorDirection', 0);" style="border-color: #D5AA53;">Links</button>
+				<button type="button" class="bottomPositie" id="buttonPositieRechts2" onclick="setAppStateValue('doorDirection', 1);">Rechts</button>
+				<button type="button" class="bottomPositie" id="buttonPositieBeiden3" onclick="setAppStateValue('doorDirection', 1);">Beiden</button>
+			</div>
+		</div>
+
+			<div id="textMateriaalHemelwater">Materiaal hemelwater afvoer</div>
+				<div class="spaceHightPositie4">
+				<button type="button" id="buttonZinken" onclick="setAppStateValue('doorType', 3); openButtonPositie3(); hide1(); hide2();"> Zinken </button>
+			</div>
+
+			<div class="spaceHightPositie5">
+				<button type="button" id="buttonPVC" onclick="setAppStateValue('doorType', 3); openButtonPositie3(); hide1(); hide2();"> PVC </button>
+			</div>
+
+			<div id="doorColorDiv1" class="colorDoorKleuHemelwater" style="display: block !important;">Kleur hemelwater afvoer
+				<button type="button" id="greyColorBottomKleur" onclick="setDoorColor(4);"></button>
+				<button type="button" id="blackColorBottomKleur" onclick="setDoorColor(1);"></button>
+			</div>
+
+
+
+
+			<div class="spaceHightPositie1">
+			<button type="button" id="buttonSloopwerkInclusief" onclick="setAppStateValue('doorType', 1); openButtonPositie1();hide2(); hide3();">Sloopwerk inclusief afvoer...<img id="buttonnInfo" src="css/infoActive.png"/></button>
+		</div>
+
+		<div class="spaceHightPositie2">
+				<button type="button" id="buttonSchilderwerk" onclick="setAppStateValue('doorType', 2); openButtonPositie2(); hide1(); hide3();">Schilderwerk<img id="buttonnInfo" src="css/info.png"/></button>
+			</div>
+
+			<div class="spaceHightPositie4">
+				<button type="button" id="buttonStucwerk" onclick="setAppStateValue('doorType', 3); openButtonPositie3(); hide1(); hide2();">Stucwerk (binnen)<img id="buttonnInfo" src="css/info.png"/></button>
+			</div>
+
+
+			<div id="buttonMeerOpties">Meer opties<img id="ArrownMeerOpties" src="css/arrowDown.png"/></div>
+
+		</div>
+	</div>
+
+	
+	<div  id="buttonFormOfferte" onclick="formOpen();"><img src="css/Opslaan.png" width="20" height="20" class="builderBlockTextInactive"/>Opslaan en offerte</div>
+	<div id="buttonFormHelp" onclick="formOpen();"><img src="css/help.png" width="20" height="20" class="builderBlockTextInactive"/>Help mij</div>
+
+</div>
+
+
+	<div class="" id="viewSelector">
+		<div class="" id="2dButton"></div>
+		<div class="" id="3dButton"></div>
+	</div>
+
+	<div class="" id="icon2D" onclick="switch2D(); window.engine.resize();"></div>
+	<div class="" id="icon3D" onclick="switch3D(); window.engine.resize();"></div>
+
+	<div class="" id="iconZoomIn" onclick="zoom(1);"></div>
+	<div class="" id="iconZoomOut" onclick="zoom(0);"></div>
+	<div class="" id="iconFullScreen" onclick="fullScreen();"></div>
+	<div class="" id="iconInfo" onclick="switchUIsummary(); return false;"></div>
+	<div class="" id="loaderBG"></div>
+	<div class="loaderStyle" id="loader1"></div>
+	<div class="loaderStyle2" id="loader2"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<div id="orderForm" style="display:none;">
+		<div id="closeCross2" onclick="formClose();"></div>
+
+
+		<div id="formContainer">
+		<img id="logoForm" src="/css/logoForm.png"/>
+		<img id="closeX" onclick="formClose();" src="/css/closeX.png"/>	
+
+
+
+		<img id="screenShot" width="800" height="400" style="width: 515px; height: 265px;"/>
+
+		<!--
+			<img id="screenShot" width="800" height="400" style="width:16vmin; height:8vmin;"/>
+		-->
+
+		<div id="fornText">
+		<div id="formTitle">Bijna klaar!</div>
+		<div id="formDescription">Sla je ontwerp op en ontvang direct per email je offerte plus de link om je<br>ontwerp altijd terug te kunnen kijken en aan te passen.</div>
+		</div>
+
+		
+		<div id="inputBlockText1" class="inputBlockTextAll">Voornaam</div>
+		<div id="inputFormVoornaam">
+					<input type="text" placeholder="Jane" id="inputBlockBackground"></input>
+		</div>
+
+		<div id="inputBlockText2" class="inputBlockTextAll">Achternaam</div>
+		<div id="inputFormAchternaam">
+					<input type="text" placeholder="Doe" id="inputBlockBackground"></input>
+		</div>
+
+		<div id="inputBlockText3" class="inputBlockTextAll">Email</div>
+		<div id="inputFormEmail">
+					<input type="text" placeholder="jane.gmail.com" id="inputBlockBackground"></input>
+		</div>
+
+		<div id="inputBlockText4" class="inputBlockTextAll">Telefoon</div>
+		<div id="inputFormTelefoon">
+					<input type="text" placeholder="085-4011608" id="inputBlockBackground"></input>
+		</div>
+
+		<div id="inputBlockText5" class="inputBlockTextAll">Straatnaam</div>
+		<div id="inputFormStraatnaam">
+					<input type="text" placeholder="Simon Lindhoutstraat" id="inputBlockBackground"></input>
+		</div>
+
+
+
+		<div id="inputBlockText6" class="inputBlockTextAll">Huisnummer</div>
+		<div id="inputFormHuisnummer">
+					<input type="text" placeholder="1" id="inputBlockBackground"></input>
+		</div>
+
+		<div id="inputBlockText7" class="inputBlockTextAll">Postcode</div>
+		<div id="inputFormPostcode">
+					<input type="text" placeholder="4691GA" id="inputBlockBackground"></input>
+		</div>
+
+		<div id="inputBlockText8" class="inputBlockTextAll">Plaatsnaam</div>
+		<div id="inputFormPlaatsnaam">
+					<input type="text" placeholder="Tholen" id="inputBlockBackground"></input>
+		</div>
+
+		<div id="checkboxDivForm" class="inputblock2">
+			<label>
+				<input id="checkBoxBorder" name="checkBoxBorder" type="checkbox" class="filled-in" onclick="checkBoxBorderClick();"/>
+				<span id="checkBoxtextForm">Ja, ik geef toestemming om mijn gegevens conform de privacyverklaring<br>te verwerken</span>
+			</label>
+		</div>
+
+	<!--
+		<form>
+		<label id="formNameFirstLabel">First name:</label><br>
+		<input type="text" id="formNameFirst" name="formNameFirst"><br>
+
+		<label id="formNameLastLabel">Last name:</label><br>
+		<input type="text" id="formNameLast" name="formNameLast">
+
+		<label id="formAddressLabel">Address:</label><br>
+		<input type="text" id="formAddress" name="formAddress"><br>
+
+		<label id="formEmailLabel">Email:</label><br>
+		<input type="text" id="formEmail" name="formEmail"><br>
+
+		<label id="formEmailAdminLabel">Email to admin (test option):</label><br>
+		<input type="text" id="formEmailAdmin" name="formEmailAdmin"><br>
+
+		<div style="display: none;">
+		<label id="formEmailLabel">Screenshot:</label><br>
+		<input type="text" id="formScreenshot" name="formScreenshot"><br>
+		</div>
+		</form>
+-->
+
+		<div id="formButton" onclick="formSend();">Opslaan + offerte<div id="descrButtonFornm">(Geheel vrijvlijvend)</div></div>
+		</div>
+
+		<div id="descrSpam">Check je spam box, indien je de email niet direct<br>in je inbox ontvangt.</div>
+		<div class="lineWidthBlockForm"></div>
+
+		<div id="titleConfigForm">Configuratie details</div>
+		<div id="optieForm">Optie</div>
+		<div id="optieVariatie">Variatie</div>
+
+		<div class="lineForm">
+			<div class="lineForm" id="lineBlockForm1"></div>
+			<div class="lineForm" id="lineBlockForm2"></div>
+			<div class="lineForm" id="lineBlockForm3"></div>
+			<div class="lineForm" id="lineBlockForm4"></div>
+			<div class="lineForm" id="lineBlockForm5"></div>
+			<div class="lineForm" id="lineBlockForm6"></div>
+		</div>
+
+		<div class="textConfigFormLeft">
+			<div class="textConfigFormLeft" id="textConfigLeft1">Indeling</div>
+			<div class="textConfigFormLeft" id="textConfigLeft2">Lichtstraat</div>
+			<div class="textConfigFormLeft" id="textConfigLeft3">Leds in plafond (binnen)</div>
+			<div class="textConfigFormLeft" id="textConfigLeft4">Leds in overstek (buiten)</div>
+			<div class="textConfigFormLeft" id="textConfigLeft5">Vorstvrije kraan (buiten)</div>
+		</div>
+
+		<div class="textConfigFormRight">
+			<div class="textConfigFormRight" id="textConfigRight1">Eén openslaande deur</div>
+			<div class="textConfigFormRight" id="textConfigRight2">Vlak</div>
+			<div class="textConfigFormRight" id="textConfigRight3">4 items</div>
+			<div class="textConfigFormRight" id="textConfigRight4">4 items</div>
+			<div class="textConfigFormRight" id="textConfigRight5">1 item</div>
+		</div>
+
+		<div type="button" id="formButtonOpslaan" onclick="formSend();">Opslaan</div>
+
+		<div type="button" id="formButtonOntwerp" onclick="formSend();">Ontwerp aanpassen</div>
+		<div id="lineBlockBottom"></div>
+		<div id="descrBottom">We gebruiken cookies om content en advertenties te personaliseren, om functies voor social<br>media te bieden en om ons websiteverkeer te analyseren.</div>
+
+
+		<div id="formRequest" style="display:none;"></div>
+
+		<div id="formRequestButton" class="btn red" onclick="formClose();" style="display:none;">CLOSE</div>
+
+
+		</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+	function onOrientationChange() {
+let width  = document.documentElement.clientWidth;
+let height = document.documentElement.clientHeight;
+let landscape = width > height;
+let viewportmeta = document.querySelector('meta[name="viewport"]');
+
+let ua = window.navigator.userAgent;
+let iOS = !!ua.match(/iPad/i) || !!ua.match(/iPhone/i);
+let webkit = !!ua.match(/WebKit/i);
+let iOSSafari = iOS && webkit && !ua.match(/CriOS/i);
+
+
+	if(landscape)
+	{
+	// adding zoom 0.5
+	//if (width < 900)
+	viewportmeta.content = "width=device-width, initial-scale=0.33, user-scalable=no";
+	if (iOSSafari == true) document.getElementById("canvas2Ddiv").style.marginTop = '0';
+
+	}
+	else
+	{
+//	document.getElementById('optionsBox').style.display='none';
+
+	//if (width < 980)
+	viewportmeta.content = "width=468, user-scalable=no";
+	if (iOSSafari == true) document.getElementById("canvas2Ddiv").style.marginTop = '28px';
+
+	}
+	if (typeof scale2d === 'function'){scale2d();}
+	}
+	window.addEventListener('orientationchange', onOrientationChange);
+	window.addEventListener('resize', onOrientationChange);
+
+
+	onOrientationChange();
+</script>
+
+<script>
+//Umage preload
+document.addEventListener("DOMContentLoaded", () => {
+    const images = new Array();
+
+    function preloadImages(...images) {
+        images.forEach((image, i) => {
+            image = new Image();
+            image.src = preloadImages.arguments[i];
+        });
+    };
+
+    // Preload IMG
+    preloadImages(
+        "css/aluminium.png",  "css/arrow_active.png", "css/arrow_inactive.png", "css/Ban.png",  "css/blackColor.png",  "css/breedte.png",  "css/brownColor.png",  "css/diepte.png", "css/doorsandindows.png", "css/eenOpenslaandeDeur.png", "css/facade.png", "css/greeyColor.png", "css/greeyColor2.png", "css/help.png", "css/house_0.png", "css/house_1.png", "css/house_2.png", "css/house_4.png", "css/house_5.png", "css/house_6.png", "css/house_left.png", "css/house_right.png", "css/house1.png", "css/house2.png", "css/housoflo_logo.png", "css/hout.png", "css/hout2.png", 
+		"css/icon_2d_active.png", "css/icon_2d_inactive.png", "css/icon_2d.png", "css/icon_3d_active.png", "css/icon_3d_inactive.png", "css/icon_3d.png", "css/icon_full_back.png", "css/icon_full.png", "css/icon_information.png", "css/icon_minus.png", "css/icon_plus.png", "css/icon_zoom1.png", "css/icon_zoom2.png", "css/invisibleoptions.png", "css/Keralite.png", "css/kunststof.png", "css/links_rechts.png", "css/offer.png", "css/options.png", "css/parameters.png", "css/Plaster.png", "css/roof.png", "css/tegengevel.png", "css/vlak.png", "css/zadeldak.png", "css/wall_dark.png", "css/wall_light.png", "css/yellowColor.png"
+    );
+});
+
+</script>
+
+</body>
+</html>
